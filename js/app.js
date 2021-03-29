@@ -10,12 +10,13 @@ export default class Sketch {
     this.time = 0;
     this.container = options.dom;
     this.scene = new THREE.Scene();
+    // this.scene.background = new THREE.Color( 0x4c96f7 );
 
     this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
 
     this.camera = new THREE.PerspectiveCamera( 70, this.width / this.height, 0.01, 10 );
-    this.camera.position.z = 1;
+    this.camera.position.z = 5;
 
     
     this.renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -55,7 +56,7 @@ export default class Sketch {
       side: THREE.DoubleSide,
       fragmentShader: fragment, 
       vertexShader: vertex,
-      // wireframe: true
+      wireframe: true
     })
   
     this.mesh = new THREE.Mesh( this.geometry, this.material );
