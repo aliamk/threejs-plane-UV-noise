@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import fragment from "./shader/fragment.glsl";
 import vertex from "./shader/vertex.glsl";
+import ON from '../img/ON.jpg'
 
 
 export default class Sketch {
@@ -48,7 +49,8 @@ export default class Sketch {
     
     this.material = new THREE.ShaderMaterial({
       uniforms: { 
-        time: {value: 0}
+        time: {value: 0},
+        onTexture: { value: new THREE.TextureLoader().load(ON)},
       },
       side: THREE.DoubleSide,
       fragmentShader: fragment, 
